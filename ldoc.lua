@@ -244,6 +244,9 @@ end
 -- Enable `require` command within `config.ld`
 ldoc.require = require
 
+-- Enable `print` command within `config.ld`
+ldoc.print = print
+
 local ldoc_contents = {
    'alias','add_language_extension','custom_tags','new_type','add_section', 'tparam_alias',
    'file','project','title','package', 'icon','format','output','dir','ext', 'topics',
@@ -257,7 +260,7 @@ local ldoc_contents = {
    'postprocess_html',
    'custom_css','version',
    'no_args_infer',
-   'require',
+   'require', 'print',
 }
 ldoc_contents = tablex.makeset(ldoc_contents)
 
