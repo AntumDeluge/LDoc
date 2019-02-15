@@ -240,11 +240,10 @@ function ldoc.custom_see_handler(pat, handler)
    doc.add_custom_see_handler(pat, handler)
 end
 
--- Enable `require` command within `config.ld`
+-- more objects/commands to make visible to `config.ld`
 ldoc.require = require
-
--- Enable `print` command within `config.ld`
 ldoc.print = print
+ldoc.table = table
 
 local ldoc_contents = {
    'alias','add_language_extension','custom_tags','new_type','add_section', 'tparam_alias',
@@ -259,7 +258,7 @@ local ldoc_contents = {
    'postprocess_html',
    'custom_css','version',
    'no_args_infer',
-   'require', 'print',
+   'require', 'print', 'table',
 }
 ldoc_contents = tablex.makeset(ldoc_contents)
 
@@ -286,6 +285,22 @@ function string.split(str, delim)
 	end
 
 	return t
+end
+
+--- Adds function to check if table contains a value.
+--
+-- @function table.contains
+-- @param tbl Table that is searched.
+-- @param value Value to check for.
+-- @return `true` if table contains value.
+function table.contains(tbl, value)
+	for t in pairs(tbl) do
+		if t == value then
+			return true
+		end
+	end
+
+	return false
 end
 
 local function loadstr (ldoc,txt)
