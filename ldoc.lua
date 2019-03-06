@@ -36,6 +36,7 @@ app.require_here()
 
 --- @usage
 local usage = [[
+<<<<<<< HEAD
 ldoc, a documentation generator for Lua, v]]..version..[[
 
   Invocation:
@@ -891,6 +892,9 @@ if builtin_style or builtin_template then
       args.template = tmpdir
    end
 end
+
+-- default icon to nil
+if args.icon == 'none' then args.icon = nil end
 
 ldoc.log = print
 ldoc.kinds = project
