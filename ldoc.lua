@@ -246,6 +246,7 @@ ldoc.require = require
 ldoc.print = print
 ldoc.table = table
 ldoc.tostring = tostring
+ldoc.tonumber = tonumber
 ldoc.string = string
 ldoc.type = type
 ldoc.quit = quit
@@ -266,7 +267,7 @@ local ldoc_contents = {
    'custom_css','version',
    'no_args_infer',
    'require', 'print', 'table', 'tostring', 'string', 'type', 'quit', 'ldoc_version',
-   'io',
+   'io', 'tonumber',
 }
 ldoc_contents = tablex.makeset(ldoc_contents)
 
