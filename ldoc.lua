@@ -29,7 +29,7 @@ local tablex = require 'pl.tablex'
 utils.unpack = utils.unpack or unpack or table.unpack
 local lapp = require 'pl.lapp'
 
-local version = '1.4.6-antum-dev-1'
+local version = '1.4.6-antum-dev-2'
 
 -- so we can find our private modules
 app.require_here()
