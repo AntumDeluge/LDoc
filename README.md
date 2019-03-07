@@ -1,8 +1,9 @@
-# LDoc - A Lua Documentation Tool
+# LDoc AD - A Lua Documentation Tool
 
 [![Luacheck](https://github.com/lunarmodules/LDoc/workflows/Luacheck/badge.svg)](https://github.com/lunarmodules/LDoc/actions)
 
 Copyright (C) 2011-2012 Steve Donovan.
+Copyright (C) 2019 Jordan Irwin (AntumDeluge).
 
 ## Rationale
 
