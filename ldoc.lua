@@ -94,6 +94,11 @@ local KindMap = tools.KindMap
 local Item,File = doc.Item,doc.File
 local quit = utils.quit
 
+-- default 'none' to 'nil'
+for key, value in pairs(args) do
+	if value == 'none' then args[key] = nil end
+end
+
 if args.version then
    print('LDoc v' .. version)
    os.exit(0)
@@ -337,14 +342,14 @@ local function read_ldoc_config (fname)
       directory = '.'
    end
    local chunk, err, _
-   if args.filter == 'none' then
+   if args.filter == nil then
       print('reading configuration from '..fname)
    end
    local txt,not_found = utils.readfile(fname)
    if txt then
       chunk, err = loadstr(ldoc,txt)
       if chunk then
-         if args.define ~= 'none' then ldoc[args.define] = true end
+         if args.define ~= nil then ldoc[args.define] = true end
          _,err = pcall(chunk)
       end
     end
@@ -770,7 +775,7 @@ if args.dump then
    end
    os.exit()
 end
-if args.tags ~= 'none' then
+if args.tags ~= nil then
    local tagset = {}
    for t in stringx.split(args.tags,','):iter() do
       tagset[t] = true
@@ -783,7 +788,7 @@ end
 
 -- ldoc --filter mod.name will load the module `mod` and pass the object graph
 -- to the function `name`. As a special case --filter dump will use pl.pretty.dump.
-if args.filter ~= 'none' then
+if args.filter ~= nil then
    doc.filter_objects_through_function(args.filter, module_list)
    os.exit()
 end
@@ -886,9 +891,6 @@ if builtin_style or builtin_template then
       args.template = tmpdir
    end
 end
-
--- default icon to nil
-if args.icon == 'none' then args.icon = nil end
 
 ldoc.log = print
 ldoc.kinds = project
