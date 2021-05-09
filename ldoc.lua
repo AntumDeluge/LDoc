@@ -285,7 +285,7 @@ ldoc_contents = tablex.makeset(ldoc_contents)
 -- @param delim Delimiter
 -- @param limit Only up to a limited number os substrings
 -- @return Table of strings
-function string.split(str, delim, limit)
+function ldoc.string.split(str, delim, limit)
 	if delim == nil then
 		delim = '%s'
 	end
@@ -293,7 +293,7 @@ function string.split(str, delim, limit)
 		str = ''
 	end
 
-	local t={} ; i=1
+	local t={} ; local i=1
 	for s in string.gmatch(str, '([^' .. delim .. ']+)') do
 		if limit ~= nil and i > limit then break end
 
@@ -310,7 +310,7 @@ end
 -- @param tbl Table that is searched.
 -- @param value Value to check for.
 -- @return `true` if table contains value.
-function table.contains(tbl, value)
+function ldoc.table.contains(tbl, value)
 	for t in pairs(tbl) do
 		if t == value then
 			return true
