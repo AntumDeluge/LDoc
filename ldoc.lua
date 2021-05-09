@@ -587,7 +587,6 @@ elseif path.isfile(args.file) then
    if not config_dir then
       config_dir = path.dirname(args.file)
       if config_dir == '' then config_dir = '.' end
-      local config = path.join(config_dir,args.config)
    end
    process_file(args.file, file_list)
    if #file_list == 0 then quit "unsupported file extension" end
