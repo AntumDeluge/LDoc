@@ -249,10 +249,6 @@ function ldoc.custom_see_handler(pat, handler)
    doc.add_custom_see_handler(pat, handler)
 end
 
-function ldoc.import(t)
-	return (_G[t])
-end
-
 local ldoc_contents = {
    'alias','add_language_extension','custom_tags','new_type','add_section', 'tparam_alias',
    'file','project','title','package','icon','favicon','format','output','dir','ext', 'topics',
