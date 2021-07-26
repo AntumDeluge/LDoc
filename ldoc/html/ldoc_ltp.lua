@@ -186,6 +186,11 @@ return [==[
 #   if ldoc.custom_tags then
 #    for custom in iter(ldoc.custom_tags) do
 #     local tag = item.tags[custom[1]]
+#     if tag and custom.aux then
+#      for value in iter(tag) do
+#       custom.aux(value)
+#      end
+#     end
 #     if tag and not custom.hidden then
 #      local li,il = use_li(tag)
     <h3>$(custom.title or custom[1]):</h3>
