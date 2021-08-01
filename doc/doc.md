@@ -1230,7 +1230,7 @@ e.g. Markdown
   - `custom_display_name_handler(item, default_handler)` function that formats an item's name. The arguments are the item
 and the default function used to format the name. For example, to show an icon or label beside any
 function tagged with a certain tag:
-
+<code>
       -- define a @callback tag:
       custom_tags = { { 'callback', hidden = true } }
 
@@ -1241,7 +1241,7 @@ function tagged with a certain tag:
         end
         return default_handler(item)
       end
-
+</code>
   - `not_luadoc` set to `true` if the docs break LuaDoc compatibility
   - `no_space_before_args` set to `true` if you do not want a space between a function's name and its arguments.
   - `template_escape` overrides the usual '#' used for Lua code in templates.
