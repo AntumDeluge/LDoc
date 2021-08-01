@@ -261,7 +261,7 @@ local ldoc_contents = {
    'dont_escape_underscore','global_lookup','prettify_files','convert_opt', 'user_keywords',
    'postprocess_html',
    'custom_css','version',
-   'no_args_infer', 'multimodule', 'import'
+   'no_args_infer', 'multimodule', 'import', 'favicon'
 }
 
 if args.unsafe_no_sandbox then
