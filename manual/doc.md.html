@@ -1469,60 +1469,57 @@ templates or for extraction by your own tools.</p>
 <p><em>These only appear in the configuration file:</em></p>
 
 <ul>
-    <li><code>description</code> a short project description used under the project title</li>
-    <li><code>full_description</code> when you <em>really</em> need a longer project description</li>
-    <li><code>examples</code> a directory or file: can be a table</li>
-    <li><code>readme</code> or <code>topics</code> readme files (to be processed with Markdown)</li>
-    <li><code>pretty</code> code prettify 'lua' (default) or 'lxsh'</li>
-    <li><code>prettify_files</code> prettify the source as well and make links to it; if its value is "show"
-    then also index the source files.</li>
-    <li><code>charset</code> use if you want to override the UTF-8 default (also <strong>@charset</strong> in files)</li>
-    <li><code>sort</code> set if you want all items in alphabetical order</li>
-    <li><code>no_return_or_parms</code> don't show parameters or return values in output</li>
-    <li><code>no_lua_ref</code> stop obsessively trying to create references to standard Lua libraries</li>
-    <li><code>backtick_references</code> whether references in backticks will be resolved. Happens by default
-    when using Markdown. When explicit will expand non-references in backticks into <code>&lt;code&gt;</code> elements</li>
-    <li><code>plain</code> set to true if <code>format</code> is set but you don't want code comments processed</li>
-    <li><code>wrap</code> set to true if you want to allow long names to wrap in the summaries</li>
-    <li><code>manual_url(url)</code> point to an alternative or local location for the Lua manual, e.g.
-    'manual_url file:///D:/dev/lua/projects/lua-5.1.4/doc/manual.html'.  Remember it is a function!</li>
-    <li><code>no_summary</code> suppress the Contents summary</li>
-    <li><code>custom_tags</code> define some new tags, which will be presented after the function description.
+    <li><p><code>description</code> a short project description used under the project title</p></li>
+    <li><p><code>full_description</code> when you <em>really</em> need a longer project description</p></li>
+    <li><p><code>examples</code> a directory or file: can be a table</p></li>
+    <li><p><code>readme</code> or <code>topics</code> readme files (to be processed with Markdown)</p></li>
+    <li><p><code>pretty</code> code prettify 'lua' (default) or 'lxsh'</p></li>
+    <li><p><code>prettify_files</code> prettify the source as well and make links to it; if its value is "show"
+    then also index the source files.</p></li>
+    <li><p><code>charset</code> use if you want to override the UTF-8 default (also <strong>@charset</strong> in files)</p></li>
+    <li><p><code>sort</code> set if you want all items in alphabetical order</p></li>
+    <li><p><code>no_return_or_parms</code> don't show parameters or return values in output</p></li>
+    <li><p><code>no_lua_ref</code> stop obsessively trying to create references to standard Lua libraries</p></li>
+    <li><p><code>backtick_references</code> whether references in backticks will be resolved. Happens by default
+    when using Markdown. When explicit will expand non-references in backticks into <code>&lt;code&gt;</code> elements</p></li>
+    <li><p><code>plain</code> set to true if <code>format</code> is set but you don't want code comments processed</p></li>
+    <li><p><code>wrap</code> set to true if you want to allow long names to wrap in the summaries</p></li>
+    <li><p><code>manual_url(url)</code> point to an alternative or local location for the Lua manual, e.g.
+    'manual_url file:///D:/dev/lua/projects/lua-5.1.4/doc/manual.html'.  Remember it is a function!</p></li>
+    <li><p><code>no_summary</code> suppress the Contents summary</p></li>
+    <li><p><code>custom_tags</code> define some new tags, which will be presented after the function description.
     The format is <code>{&lt;name&gt;,[title=&lt;name&gt;,}{hidden=false,}{format=nil}}</code>.  For instance
     <code>custom_tags={'remark',title='Remarks'}</code> will add a little <code>Remarks</code> section to the docs for any function
     containing this tag.  <code>format</code> can be a function - if not present the default formatter will be used,
-    e.g. Markdown</li>
-    <li><code>custom_see_handler(pat,handler)</code> function that filters see-references</li>
-    <li><code>custom_display_name_handler(item, default_handler)</code> function that formats an item's name. The arguments are the item
-    and the default function used to format the name. For example, to show an icon or label beside any
-    function tagged with a certain tag:</li>
+    e.g. Markdown</p></li>
+    <li><p><code>custom_see_handler(pat,handler)</code> function that filters see-references</p></li>
+    <li><p><code>custom_display_name_handler(item, default_handler)</code> function that formats an item's name. The arguments are the item
+and the default function used to format the name. For example, to show an icon or label beside any
+function tagged with a certain tag:</p>
+
+<pre><code>-- define a @callback tag:
+custom_tags = { { 'callback', hidden = true } }
+
+-- show a label beside functions tagged with @callback.
+custom_display_name_handler = function(item, default_handler)
+    if item.type == 'function' and item.tags.callback then
+        return item.name .. ' [callback]'
+    end
+    return default_handler(item)
+end
+</code></pre></li>
+    <li><p><code>not_luadoc</code> set to <code>true</code> if the docs break LuaDoc compatibility</p></li>
+    <li><p><code>no_space_before_args</code> set to <code>true</code> if you do not want a space between a function's name and its arguments.</p></li>
+    <li><p><code>template_escape</code> overrides the usual '#' used for Lua code in templates.
+    This needs to be changed if the output format is Markdown, for instance.</p></li>
+    <li><p><code>user_keywords</code> A list of keywords that will be marked in "prettified" code. Useful if
+    you want to display your own functions in a special way. Each keyword may be styled differently
+    (using CSS). Only works when <code>pretty</code> is set to 'lua' (the default).</p></li>
+    <li><p><code>postprocess_html</code> function that allows a last-minute modification to the produced HTML page.
+    The arguments are the raw HTML that's intended to be written out (a string), and the module object.
+    The string this function returns will be what's actually gets written out.</p></li>
+    <li><p><code>favicon</code> A link to an image that browser's will display as each page's icon.</p></li>
 </ul>
-
-
-<pre>
-<span class="comment">-- define a @callback tag:
-</span>custom_tags = { { <span class="string">'callback'</span>, hidden = <span class="keyword">true</span> } }
-
-<span class="comment">-- show a label beside functions tagged with @callback.
-</span>custom_display_name_handler = <span class="keyword">function</span>(item, default_handler)
-  <span class="keyword">if</span> item.<span class="global">type</span> == <span class="string">'function'</span> <span class="keyword">and</span> item.tags.callback <span class="keyword">then</span>
-    <span class="keyword">return</span> item.name .. <span class="string">' [callback]'</span>
-  <span class="keyword">end</span>
-  <span class="keyword">return</span> default_handler(item)
-<span class="keyword">end</span>
-</pre>
-
-<p>  - <code>not_luadoc</code> set to <code>true</code> if the docs break LuaDoc compatibility
-  - <code>no_space_before_args</code> set to <code>true</code> if you do not want a space between a function's name and its arguments.
-  - <code>template_escape</code> overrides the usual '#' used for Lua code in templates.
-This needs to be changed if the output format is Markdown, for instance.
-  - <code>user_keywords</code> A list of keywords that will be marked in "prettified" code. Useful if
-you want to display your own functions in a special way. Each keyword may be styled differently
-(using CSS). Only works when <code>pretty</code> is set to 'lua' (the default).
-  - <code>postprocess_html</code> function that allows a last-minute modification to the produced HTML page.
-The arguments are the raw HTML that's intended to be written out (a string), and the module object.
-The string this function returns will be what's actually gets written out.
-  - <code>favicon</code> A link to an image that browser's will display as each page's icon.</p>
 
 <p><em>Available functions are:</em></p>
 
@@ -1721,7 +1718,7 @@ to their tags.</p>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/AntumDeluge/LDoc/tree/custom">LDoc 1.4.6-antum-dev</a></i>
-<i style="float:right;">Last updated 2021-08-01 07:47:35 </i>
+<i style="float:right;">Last updated 2021-08-01 08:09:16 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
