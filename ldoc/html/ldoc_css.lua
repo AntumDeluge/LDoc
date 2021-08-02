@@ -90,9 +90,12 @@ table.index td { text-align: left; vertical-align: top; }
 #navigation {
     float: left;
     width: 14em;
+    max-height: 96.7%;
+    position: fixed;
     vertical-align: top;
     background-color: #f0f0f0;
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #navigation h2 {
