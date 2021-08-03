@@ -23,7 +23,7 @@ for t in $(git tag | grep "^doc-v"); do
 			exit ${ret}
 		fi
 	fi
-	mv "${d_root}/out" "${d_root}/doc_builds/${t}"
+	mv "${d_root}/out" "${d_root}/doc_builds/$(echo ${t} | sed -e 's/^doc-v//')"
 done
 
 cd "${d_root}"
