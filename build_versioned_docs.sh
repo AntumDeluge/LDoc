@@ -9,7 +9,7 @@ main_branch="$(git branch --show-current)"
 html_out="<html>\n<head></head>\n\n<body>\n\n<ul>\n"
 
 mkdir -p "${d_root}/doc_builds"
-for t in $(git tag | grep "^doc-v"); do
+for t in $(git tag -l --sort=-v:refname | grep "^doc-v"); do
 	echo -e "\nbuilding ${t} ..."
 	git checkout ${t}
 	make doc-site
