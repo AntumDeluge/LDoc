@@ -10,8 +10,6 @@ jobs:
     name: Build docs
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
     - name: Setup Lua
       uses: leafo/gh-actions-lua@v8
       with:
@@ -20,10 +18,10 @@ jobs:
       uses: leafo/gh-actions-luarocks@v4
     - name: Setup dependencies
       run: luarocks install --only-deps https://raw.githubusercontent.com/lunarmodules/LDoc/master/ldoc-scm-3.rockspec
-    - name: Build docs
-      run: chmod +x build_versioned_docs.sh && ./build_versioned_docs.sh
+    - name: Checkout & build docs
+      run: git clone --branch=build_docs https://github.com/AntumDeluge/LDoc.git ldoc && cd ldoc && chmod +x build_versioned_docs.sh && ./build_versioned_docs.sh
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./doc_builds
+        publish_dir: ldoc/doc_builds/
