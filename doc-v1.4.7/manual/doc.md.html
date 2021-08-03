@@ -50,7 +50,6 @@
 <li><a href="#Readme_files">Readme files </a></li>
 <li><a href="#Tag_Modifiers">Tag Modifiers </a></li>
 <li><a href="#Fields_allowed_in__config_ld_">Fields allowed in `config.ld` </a></li>
-<li><a href="#Importing_Lua_Objects">Importing Lua Objects </a></li>
 <li><a href="#Annotations_and_Searching_for_Tags">Annotations and Searching for Tags </a></li>
 <li><a href="#Generating_HTML">Generating HTML </a></li>
 <li><a href="#Internal_Data_Representation">Internal Data Representation </a></li>
@@ -1463,7 +1462,6 @@ templates or for extraction by your own tools.</p>
     <li><code>merge</code> allow documentation from different files to be merged into modules without
     explicit <strong>@submodule</strong> tag</li>
     <li><code>icon</code> an image that will be displayed under the project name on all pages</li>
-    <li><code>multimodule</code> allow using @module, @script, @file, etc. multiple times in a file</li>
 </ul>
 
 <p><em>These only appear in the configuration file:</em></p>
@@ -1494,9 +1492,10 @@ templates or for extraction by your own tools.</p>
     e.g. Markdown</li>
     <li><code>custom_see_handler(pat,handler)</code> function that filters see-references</li>
     <li><code>custom_display_name_handler(item, default_handler)</code> function that formats an item's name. The arguments are the item
-and the default function used to format the name. For example, to show an icon or label beside any
-function tagged with a certain tag:
-<code>
+    and the default function used to format the name. For example, to show an icon or label beside any
+    function tagged with a certain tag:</li>
+</ul>
+
 
 <pre>
 <span class="comment">-- define a @callback tag:
@@ -1511,24 +1510,20 @@ function tagged with a certain tag:
 <span class="keyword">end</span>
 </pre>
 
-</code></li>
-    <li><code>not_luadoc</code> set to <code>true</code> if the docs break LuaDoc compatibility</li>
-    <li><code>no_space_before_args</code> set to <code>true</code> if you do not want a space between a function's name and its arguments.</li>
-    <li><code>template_escape</code> overrides the usual '#' used for Lua code in templates.
-    This needs to be changed if the output format is Markdown, for instance.</li>
-    <li><code>user_keywords</code> A list of keywords that will be marked in "prettified" code. Useful if
-    you want to display your own functions in a special way. Each keyword may be styled differently
-    (using CSS). Only works when <code>pretty</code> is set to 'lua' (the default).</li>
-    <li><code>postprocess_html</code> function that allows a last-minute modification to the produced HTML page.
-    The arguments are the raw HTML that's intended to be written out (a string), and the module object.
-    The string this function returns will be what's actually gets written out.</li>
-    <li><code>favicon</code> A link to an image that browser's will display as each page's icon.</li>
-</ul>
+<p>  - <code>not_luadoc</code> set to <code>true</code> if the docs break LuaDoc compatibility
+  - <code>no_space_before_args</code> set to <code>true</code> if you do not want a space between a function's name and its arguments.
+  - <code>template_escape</code> overrides the usual '#' used for Lua code in templates.
+This needs to be changed if the output format is Markdown, for instance.
+  - <code>user_keywords</code> A list of keywords that will be marked in "prettified" code. Useful if
+you want to display your own functions in a special way. Each keyword may be styled differently
+(using CSS). Only works when <code>pretty</code> is set to 'lua' (the default).
+  - <code>postprocess_html</code> function that allows a last-minute modification to the produced HTML page.
+The arguments are the raw HTML that's intended to be written out (a string), and the module object.
+The string this function returns will be what's actually gets written out.</p>
 
 <p><em>Available functions are:</em></p>
 
 <ul>
-    <li><code>import(obj)</code> exposes Lua object <code>obj</code> to config.ld (enabled with <code>--UNSAFE_NO_SANDBOX</code>)</li>
     <li><code>alias(a,tag)</code> provide an alias <code>a</code> for the tag <code>tag</code>, for instance <code>p</code> as short for
     <code>param</code></li>
     <li><code>add_language_extension(ext,lang)</code> here <code>lang</code> may be either 'c' or 'lua', and <code>ext</code> is
@@ -1542,20 +1537,6 @@ function tagged with a certain tag:
     extracted values will be passed to <code>handler</code>. It is expected to return link text
     and a suitable URI. (This match will happen before default processing.)</li>
 </ul>
-
-<p><a name="Importing_Lua_Objects"></a></p>
-<h2>Importing Lua Objects</h2>
-
-<p>The <code>import</code> function is available to gain access to built-in Lua functions &amp; objects.</p>
-
-<pre><code> local print = import("print")
- local string = import("string")
-
- for _, s in ipairs({string.split("Hello world!")}) do
-    print(s)
- end
-</code></pre>
-
 
 <p><a name="Annotations_and_Searching_for_Tags"></a></p>
 <h2>Annotations and Searching for Tags</h2>
@@ -1721,8 +1702,8 @@ to their tags.</p>
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/AntumDeluge/LDoc/tree/custom">LDoc 1.4.6-antum-dev</a></i>
-<i style="float:right;">Last updated 2021-08-02 09:07:38 </i>
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-08-03 00:36:19 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
