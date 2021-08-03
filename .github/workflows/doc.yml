@@ -21,9 +21,9 @@ jobs:
     - name: Setup dependencies
       run: luarocks install --only-deps https://raw.githubusercontent.com/lunarmodules/LDoc/master/ldoc-scm-3.rockspec
     - name: Build docs
-      run: make doc-site
+      run: chmod +x build_versioned_docs.sh && ./build_versioned_docs.sh
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out
+        publish_dir: ./doc_builds
