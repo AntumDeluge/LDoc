@@ -369,10 +369,6 @@ if args.file == '.' then
    config_dir,err = read_ldoc_config(args.config)
    if err then quit("no "..quote(args.config).." found") end
    local config_path = path.dirname(args.config)
-   if config_path ~= '' then
-      print('changing to directory',config_path)
-      lfs.chdir(config_path)
-   end
    args.file = ldoc.file or '.'
    if args.file == '.' then
       args.file = lfs.currentdir()
