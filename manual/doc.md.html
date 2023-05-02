@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
     <title>LDoc documentation</title>
-    <link rel="stylesheet" href="../ldoc_pale.css" type="text/css" />
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
 </head>
 <body>
 
@@ -27,31 +27,32 @@
 <h1>LDoc</h1>
 
 
+
 <h2>Contents</h2>
 <ul>
-<li><a href="#Introduction">Introduction</a></li>
-<li><a href="#Commenting_Conventions">Commenting Conventions</a></li>
-<li><a href="#Sections">Sections</a></li>
-<li><a href="#Which_files_are_processed_">Which files are processed?</a></li>
-<li><a href="#See_References">See References</a></li>
-<li><a href="#Module_Tags">Module Tags</a></li>
-<li><a href="#Adding_new_Tags">Adding new Tags</a></li>
-<li><a href="#Inferring_more_from_Code">Inferring more from Code</a></li>
-<li><a href="#Extension_modules_written_in_C">Extension modules written in C</a></li>
-<li><a href="#Moonscript_Support">Moonscript Support</a></li>
-<li><a href="#Basic_Usage">Basic Usage</a></li>
-<li><a href="#Markdown_Support">Markdown Support</a></li>
-<li><a href="#Processing_Single_Modules">Processing Single Modules</a></li>
-<li><a href="#Getting_Help_about_a_Module">Getting Help about a Module</a></li>
-<li><a href="#Anatomy_of_a_LDoc_generated_Page">Anatomy of a LDoc-generated Page</a></li>
-<li><a href="#Customizing_the_Page">Customizing the Page</a></li>
-<li><a href="#Examples">Examples</a></li>
-<li><a href="#Readme_files">Readme files</a></li>
-<li><a href="#Tag_Modifiers">Tag Modifiers</a></li>
-<li><a href="#Fields_allowed_in__config_ld_">Fields allowed in `config.ld`</a></li>
-<li><a href="#Annotations_and_Searching_for_Tags">Annotations and Searching for Tags</a></li>
-<li><a href="#Generating_HTML">Generating HTML</a></li>
-<li><a href="#Internal_Data_Representation">Internal Data Representation</a></li>
+<li><a href="#Introduction">Introduction </a></li>
+<li><a href="#Commenting_Conventions">Commenting Conventions </a></li>
+<li><a href="#Sections">Sections </a></li>
+<li><a href="#Which_files_are_processed_">Which files are processed? </a></li>
+<li><a href="#See_References">See References </a></li>
+<li><a href="#Module_Tags">Module Tags </a></li>
+<li><a href="#Adding_new_Tags">Adding new Tags </a></li>
+<li><a href="#Inferring_more_from_Code">Inferring more from Code </a></li>
+<li><a href="#Extension_modules_written_in_C">Extension modules written in C </a></li>
+<li><a href="#Moonscript_Support">Moonscript Support </a></li>
+<li><a href="#Basic_Usage">Basic Usage </a></li>
+<li><a href="#Markdown_Support">Markdown Support </a></li>
+<li><a href="#Processing_Single_Modules">Processing Single Modules </a></li>
+<li><a href="#Getting_Help_about_a_Module">Getting Help about a Module </a></li>
+<li><a href="#Anatomy_of_a_LDoc_generated_Page">Anatomy of a LDoc-generated Page </a></li>
+<li><a href="#Customizing_the_Page">Customizing the Page </a></li>
+<li><a href="#Examples">Examples </a></li>
+<li><a href="#Readme_files">Readme files </a></li>
+<li><a href="#Tag_Modifiers">Tag Modifiers </a></li>
+<li><a href="#Fields_allowed_in__config_ld_">Fields allowed in `config.ld` </a></li>
+<li><a href="#Annotations_and_Searching_for_Tags">Annotations and Searching for Tags </a></li>
+<li><a href="#Generating_HTML">Generating HTML </a></li>
+<li><a href="#Internal_Data_Representation">Internal Data Representation </a></li>
 </ul>
 
 
@@ -89,7 +90,7 @@ out of source code comments (doc comments). It is mainly targeted at Lua and doc
 Lua APIs, but it can also parse C with according doc comments for documenting Lua modules
 implemented in C.</p>
 
-<p>It is mostly compatible with <a href="http://keplerproject.github.com/luadoc/">LuaDoc</a>,
+<p>It is mostly compatible with <a href="http://keplerproject.github.io/luadoc/">LuaDoc</a>,
 except that certain workarounds are no longer needed.
 For instance, it is not so married to the idea that Lua modules should be defined using the
 <code>module</code> function; this is not only a matter of taste since this has been deprecated in Lua
@@ -97,7 +98,7 @@ For instance, it is not so married to the idea that Lua modules should be define
 
 <p>Otherwise, the output is very similar, which is no accident since the HTML templates are
 based directly on LuaDoc. You can ship your own customized templates and style sheets with
-your <a href="http://nilnor.github.com/textui/docs/">own project</a> (also see Graham Hannington's
+your <a href="https://nilnor.github.io/textui/docs/">own project</a> (also see Graham Hannington's
 documentation for <a href="http://lua4z.com/doc/">Lua for z/OS</a>). LDoc comes with three extra themes; 'pale'
 for those who like whitespace, 'one' for one-column output, and 'fixed' for a fixed navigation
 bar down the left side.</p>
@@ -125,7 +126,7 @@ modules, functions, tables and types ("classes") of your API.</p>
 <h3>Doc comments</h3>
 
 <p>Only 'doc comments' are parsed; these can be started with at least 3 hyphens, or by a empty
-comment line with at least 3 hypens:</p>
+comment line with at least 3 hyphens:</p>
 
 
 <pre>
@@ -216,7 +217,7 @@ which introduces the name:</p>
 </span>
 <span class="keyword">local</span> test = {}
 
-<span class="keyword">function</span> test.my_module_function_1()
+<span class="keyword">function</span> test.<span class="function-name">my_module_function_1</span>()
     ...
 <span class="keyword">end</span>
 
@@ -238,7 +239,7 @@ This is a simple example of a documented function:</p>
 </span><span class="comment">-- It is a specialized splitting operation on a string.
 </span><span class="comment">-- @param text the string
 </span><span class="comment">-- @return a table of substrings
-</span><span class="keyword">function</span> foo (text)
+</span><span class="keyword">function</span> <span class="function-name">foo</span> (text)
 ....
 <span class="keyword">end</span>
 </pre>
@@ -251,7 +252,7 @@ which is especially useful when documenting a Lua api exported by C code:</p>
 <span class="comment">/// A C function which is exported to Lua with another name,
 </span><span class="comment">// because the ways of C can be mysterious!
 </span><span class="comment">// @function our_nice_function
-</span><span class="keyword">int</span> _some_function_for_lua(lua_State* l) {
+</span><span class="keyword">int</span> <span class="function-name">_some_function_for_lua</span>(lua_State* l) {
     ....
 }
 </pre>
@@ -292,12 +293,12 @@ function. For Lua, there can also be multiple 'return' tags</p>
 </span><span class="comment">-- @param c third coeff
 </span><span class="comment">-- @return first root, or nil
 </span><span class="comment">-- @return second root, or imaginary root error
-</span><span class="keyword">function</span> solve (a,b,c)
+</span><span class="keyword">function</span> <span class="function-name">solve</span> (a,b,c)
     <span class="keyword">local</span> disc = b^<span class="number">2</span> - <span class="number">4</span>*a*c
     <span class="keyword">if</span> disc &lt; <span class="number">0</span> <span class="keyword">then</span>
         <span class="keyword">return</span> <span class="keyword">nil</span>,<span class="string">"imaginary roots"</span>
     <span class="keyword">else</span>
-       disc = <span class="global">math</span>.sqrt(disc)
+       disc = <span class="global">math</span>.<span class="function-name">sqrt</span>(disc)
        <span class="keyword">return</span> (-b + disc)/<span class="number">2</span>*a,
               (-b - disc)/<span class="number">2</span>*a
     <span class="keyword">end</span>
@@ -362,7 +363,7 @@ identifiers.</p>
 
 <span class="comment">--- an explicitly named function.
 </span><span class="comment">-- @function my_function
-</span><span class="keyword">function</span> my_function()
+</span><span class="keyword">function</span> <span class="function-name">my_function</span>()
     ...
 <span class="keyword">end</span>
 </pre>
@@ -383,7 +384,7 @@ can still start your modules the Lua 5.1 way:</p>
 
 <p>However, the 'module' function is deprecated in Lua 5.2 and it is increasingly
 common to see less 'magic' ways of creating modules, as seen in the description
-of the 'module' tag previously with the explicitely returned module table.</p>
+of the 'module' tag previously with the explicitly returned module table.</p>
 
 <h3>Repeating tags</h3>
 
@@ -406,7 +407,7 @@ tag like 'function' can only occur once in a comment.</p>
 <span class="keyword">local</span> M = {}
 
 <span class="comment">-- first test.
-</span><span class="keyword">function</span> M.one()
+</span><span class="keyword">function</span> M.<span class="function-name">one</span>()
 ..
 <span class="keyword">end</span>
 
@@ -436,13 +437,13 @@ They can be documented just like 'public' functions:</p>
 
 <pre>
 <span class="comment">--- it's clear that boo is local from context.
-</span><span class="keyword">local</span> <span class="keyword">function</span> boo(...) .. <span class="keyword">end</span>
+</span><span class="keyword">local</span> <span class="keyword">function</span> <span class="function-name">boo</span>(...) .. <span class="keyword">end</span>
 
 <span class="keyword">local</span> foo
 
 <span class="comment">--- we need to give a hint here for foo
 </span><span class="comment">-- @local here
-</span><span class="keyword">function</span> foo(...) .. <span class="keyword">end</span>
+</span><span class="keyword">function</span> <span class="function-name">foo</span>(...) .. <span class="keyword">end</span>
 </pre>
 
 <h3>Alternative way of specifying tags</h3>
@@ -463,7 +464,7 @@ They can be documented just like 'public' functions:</p>
 
 <p>In this style, types may be used directly if prefixed with '!' or '?' (for type-or-nil)</p>
 
-<p>(see <a href="../examples/colon.lua.html#">colon.lua</a>, rendered <a href="http://stevedonovan.github.io/ldoc/examples/colon">here</a>)</p>
+<p>(see <a href="../examples/colon.lua.html#">colon.lua</a>)</p>
 
 <p><a name="Sections"></a></p>
 <h2>Sections</h2>
@@ -502,7 +503,7 @@ the new section title, and the description will be output at the start of the fu
 details for that section; the name is not used, but must be unique.</p>
 
 <p>Sections appear under 'Contents' on the left-hand side. See the
-<a href="http://stevedonovan.github.com/winapi/api.html">winapi</a> documentation for an example of how
+<a href="https://stevedonovan.github.io/winapi/api.html">winapi</a> documentation for an example of how
 this looks.</p>
 
 <p>Arguably a module writer should not write such very long modules, but it is not the job of
@@ -519,7 +520,7 @@ the documentation tool to limit the programmer!</p>
 ....
 <span class="comment">--- get the modification time.
 </span><span class="comment">-- @return standard time since epoch
-</span><span class="keyword">function</span> File:mtime()
+</span><span class="keyword">function</span> File:<span class="function-name">mtime</span>()
 ...
 <span class="keyword">end</span>
 </pre>
@@ -580,7 +581,7 @@ examples of use; there can be multiple such tags:</p>
 </span><span class="comment">-- @return second part
 </span><span class="comment">-- @usage local hello,world = split2("hello world")
 </span><span class="comment">-- @see split
-</span>funtion split2(s,delim) .. <span class="keyword">end</span>
+</span><span class="keyword">function</span> <span class="function-name">split2</span>(s,delim) .. <span class="keyword">end</span>
 </pre>
 
 <p>Here it's assumed that 'split' is a function defined in the same module. If you wish to link
@@ -622,7 +623,7 @@ type of a parameter or return value when that type has a particular structure:</
 </span><span class="comment">-- extract standard variables.
 </span><span class="comment">-- @param s the string
 </span><span class="comment">-- @return @{stdvars}
-</span><span class="keyword">function</span> extract_std(s) ... <span class="keyword">end</span>
+</span><span class="keyword">function</span> <span class="function-name">extract_std</span>(s) ... <span class="keyword">end</span>
 
 <span class="comment">------
 </span><span class="comment">-- standard variables.
@@ -663,7 +664,7 @@ to the corresponding C function:</p>
 </span><span class="comment">-- @see raise(3)
 </span><span class="comment">-- @int nsig
 </span><span class="comment">-- @return integer error cod
-</span><span class="keyword">function</span> raise (nsig)
+</span><span class="keyword">function</span> <span class="function-name">raise</span> (nsig)
 <span class="keyword">end</span>
 </pre>
 
@@ -674,8 +675,8 @@ online references to the Linux manpages. So in <code>config.ld</code> we have:</
 <pre>
 <span class="keyword">local</span> upat = <span class="string">"http://www.kernel.org/doc/man-pages/online/pages/man%s/%s.%s.html"</span>
 
-custom_see_handler(<span class="string">'^([%w_]+)%((%d)%)$'</span>,<span class="keyword">function</span>(name,section)
-    <span class="keyword">local</span> url = upat:format(section,name,section)
+<span class="function-name">custom_see_handler</span>(<span class="string">'^([%w_]+)%((%d)%)$'</span>,<span class="keyword">function</span>(name,section)
+    <span class="keyword">local</span> url = upat:<span class="function-name">format</span>(section,name,section)
     <span class="keyword">local</span> name = name .. <span class="string">'('</span> ..section..<span class="string">')'</span>
     <span class="keyword">return</span> name, url
 <span class="keyword">end</span>)
@@ -709,7 +710,7 @@ is presented formatted as-is in a code font. If you look at the script <code>ldo
 this documentation, you can see how the command-line usage is shown. Since coding
 is all about avoiding repetition and the out-of-sync issues that arise,
 the <strong>@usage</strong> tag can appear later in the module, before a long string. For instance,
-the main script of LDoc is <a href="https://github.com/stevedonovan/LDoc/blob/master/ldoc.lua">ldoc.lua</a>
+the main script of LDoc is <a href="https://github.com/lunarmodules/LDoc/blob/master/ldoc.lua">ldoc.lua</a>
 and you will see that the usage tag appears on line 36 before the usage string
 presented as help.</p>
 
@@ -750,14 +751,14 @@ provides a title and defines an alias for 'param':</p>
 <pre>
 title = <span class="string">"testmod docs"</span>
 project = <span class="string">"testmod"</span>
-alias(<span class="string">"p"</span>,<span class="string">"param"</span>)
+<span class="function-name">alias</span>(<span class="string">"p"</span>,<span class="string">"param"</span>)
 </pre>
 
 <p>Extra tag <em>types</em> can be defined:</p>
 
 
 <pre>
-new_type(<span class="string">"macro"</span>,<span class="string">"Macros"</span>)
+<span class="function-name">new_type</span>(<span class="string">"macro"</span>,<span class="string">"Macros"</span>)
 </pre>
 
 <p>And then used as any other type:</p>
@@ -776,7 +777,7 @@ new_type(<span class="string">"macro"</span>,<span class="string">"Macros"</span
 
 
 <pre>
-new_type(<span class="string">"macro"</span>,<span class="string">"Macros"</span>,<span class="keyword">false</span>,<span class="string">"param"</span>)
+<span class="function-name">new_type</span>(<span class="string">"macro"</span>,<span class="string">"Macros"</span>,<span class="keyword">false</span>,<span class="string">"param"</span>)
 </pre>
 
 <p>(The third argument means that this is not a <em>project level</em> tag)</p>
@@ -833,7 +834,7 @@ doc comment. LDoc goes further with this kind of code analysis, however.</p>
 <span class="comment">------------
 </span><span class="comment">-- third function. Can also provide parameter comments inline,
 </span><span class="comment">-- provided they follow this pattern.
-</span><span class="keyword">function</span> mod1.third_function(
+</span><span class="keyword">function</span> mod1.<span class="function-name">third_function</span>(
     alpha, <span class="comment">-- correction A
 </span>    beta, <span class="comment">-- correction B
 </span>    gamma <span class="comment">-- factor C
@@ -858,7 +859,7 @@ Create a table with given array and hash slots.
 @param nrec initial hash slots, default 0
 @return the new table
 */</span>
-<span class="keyword">static</span> <span class="keyword">int</span> l_createtable (lua_State *L) {
+<span class="keyword">static</span> <span class="keyword">int</span> <span class="function-name">l_createtable</span> (lua_State *L) {
 ....
 </pre>
 
@@ -881,7 +882,7 @@ the docs from the separate files. For this, use <code>merge=true</code>.</p>
 <p><a name="Moonscript_Support"></a></p>
 <h2>Moonscript Support</h2>
 
-<p>1.4 introduces basic support for <a href="http://moonscript.org">Moonscript</a>. Moonscript module
+<p>1.4 introduces basic support for <a href="https://moonscript.org">Moonscript</a>. Moonscript module
 conventions are just the same as Lua, except for an explicit class construct.
 <a href="../examples/List.moon.html#">List.moon</a> shows how <strong>@classmod</strong> can declare modules that export one class, with metamethods
 and methods put implicitly into a separate section.</p>
@@ -952,17 +953,20 @@ and descriptions; you can also use the <code>-f</code> flag. This requires a mar
 LDoc knows how to use:</p>
 
 <ul>
-    <li><a href="http://www.frykholm.se/files/markdown.lua">markdown.lua</a> a pure Lua processor by
+    <li><a href="https://www.frykholm.se/files/markdown.lua">markdown.lua</a> a pure Lua processor by
     Niklas Frykholm. For convenience, LDoc comes with a copy of markdown.lua.</li>
     <li><a href="http://asbradbury.org/projects/lua-discount/">lua-discount</a>, a faster alternative
     (installed with <code>luarocks install lua-discount</code>).  lua-discount uses the C
-    <a href="http://www.pell.portland.or.us/~orc/Code/discount/">discount</a> Markdown processor which has
+    <a href="https://www.pell.portland.or.us/~orc/Code/discount/">discount</a> Markdown processor which has
     more features than the pure Lua version, such as PHP-Extra style tables.</li>
-    <li><a href="http://jgm.github.com/lunamark/">lunamark</a>, another pure Lua processor,  faster than
+    <li><a href="https://jgm.github.io/lunamark/">lunamark</a>, another pure Lua processor,  faster than
     markdown, and with extra features (<code>luarocks install lunamark</code>).</li>
+    <li>commonmark via <a href="https://github.com/jgm/cmark-lua">cmark-lua</a>, a Lua wrapper
+    around the fast <a href="https://github.com/jgm/cmark">libcmark</a> C library (`luarocks
+    install cmark`)</li>
 </ul>
 
-<p>You can request the processor you like with <code>format = 'markdown|discount|lunamark|plain|backticks'</code>, and
+<p>You can request the processor you like with <code>format = 'markdown|discount|lunamark|commonmark|plain|backticks'</code>, and
 LDoc will attempt to use it.  If it can't find it, it will look for one of the other
 markdown processors; the original <code>markdown.lua</code> ships with LDoc, although it's slow
 for larger documents.</p>
@@ -1067,9 +1071,9 @@ message
 </code></pre>
 
 
-<p>Thanks to Mitchell's <a href="http://foicica.com/textadept/">Textadept</a> project, LDoc has a
+<p>Thanks to Mitchell's <a href="https://orbitalquark.github.io/textadept/">Textadept</a> project, LDoc has a
 set of <code>.luadoc</code> files for all the standard tables, plus
-<a href="http://keplerproject.github.com/luafilesystem/">LuaFileSystem</a> and
+<a href="https://keplerproject.github.io/luafilesystem/">LuaFileSystem</a> and
 <a href="http://www.inf.puc-rio.br/~roberto/lpeg/lpeg.html">LPeg</a>.</p>
 
 <pre><code>$&gt; ldoc -m lfs.lock
@@ -1093,7 +1097,7 @@ length
 <p><a name="Anatomy_of_a_LDoc_generated_Page"></a></p>
 <h2>Anatomy of a LDoc-generated Page</h2>
 
-<p><a href="http://stevedonovan.github.com/winapi/api.html">winapi</a> can be used as a good example of a
+<p><a href="https://stevedonovan.github.io/winapi/api.html">winapi</a> can be used as a good example of a
 module that uses extended LDoc features.</p>
 
 <p>The <em>navigation section</em> down the left has several parts:</p>
@@ -1115,9 +1119,9 @@ the subtitles become the sections shown here.</p>
 
 <p><strong>Modules</strong> will appear for any project providing Lua libraries; there may also be a 'Scripts'
 section if the project contains Lua scripts. For example,
-<a href="http://stevedonovan.github.com/LuaMacro/docs/api.html">LuaMacro</a> has a driver script <code>luam</code>
+<a href="https://stevedonovan.github.io/LuaMacro/docs/api.html">LuaMacro</a> has a driver script <code>luam</code>
 in this section. The
-<a href="http://stevedonovan.github.com/LuaMacro/docs/modules/macro.builtin.html">builtin</a> module
+<a href="https://stevedonovan.github.io/LuaMacro/docs/modules/macro.builtin.html">builtin</a> module
 only defines macros, which are defined as a <em>custom tag type[?]</em>.</p>
 
 <p>The <em>content section</em> on the right shows:</p>
@@ -1151,7 +1155,7 @@ with <code>kind_names</code> in <code>config.ld</code>. For instance, in Penligh
 <h2>Customizing the Page</h2>
 
 <p>A basic customization is to override the default UTF-8 encoding using <code>charset</code>. For instance,
-Brazillian software would find it useful to put <code>charset='ISO-8859-1'</code> in <code>config.ld</code>, or use
+Brazilian software would find it useful to put <code>charset='ISO-8859-1'</code> in <code>config.ld</code>, or use
 the <strong>@charset</strong> tag for individual files.</p>
 
 <p>Setting <code>no_return_or_parms</code> to <code>true</code> will suppress the display of 'param' and 'return'
@@ -1163,12 +1167,12 @@ Markdown in a stylized way to specify arguments:</p>
 <pre>
 <span class="comment">---------
 </span><span class="comment">-- This extracts the shortest common substring from the strings _s1_ and _s2_
-</span><span class="keyword">function</span> M.common_substring(s1,s2)
+</span><span class="keyword">function</span> M.<span class="function-name">common_substring</span>(s1,s2)
 </pre>
 
 <p>Here I've chosen to italicise parameter names; the main thing is to be consistent.</p>
 
-<p>This style is close to the Python <a href="http://docs.python.org/library/array.html#module-array">documentation
+<p>This style is close to the Python <a href="https://docs.python.org/library/array.html#module-array">documentation
 standard</a>, especially when used with
 <code>no_summary</code>.</p>
 
@@ -1187,7 +1191,7 @@ format = <span class="string">'discount'</span>
 </pre>
 
 <p>Generally, using Markdown gives you the opportunity to structure your documentation in any
-way you want; particularly if using lua-discount and its <a href="http://michelf.com/projects/php-markdown/extra/#table">table
+way you want; particularly if using lua-discount and its <a href="https://michelf.com/projects/php-markdown/extra/#table">table
 syntax</a>; the desired result can often
 be achieved then by using a custom style sheet.</p>
 
@@ -1200,7 +1204,7 @@ and they like looking at examples.  Previously I found myself dealing with sourc
 and writer-generated documentation using different tools, and having to match these up.</p>
 
 <p>LDoc allows for source examples to be included in the documentation. For example, see the
-online documentation for <a href="http://stevedonovan.github.com/winapi/api.html">winapi</a>. The
+online documentation for <a href="https://stevedonovan.github.io/winapi/api.html">winapi</a>. The
 function <code>utf8_expand</code> has a <strong>@see</strong> reference to 'testu.lua' and following that link gives
 you a pretty-printed version of the code.</p>
 
@@ -1276,7 +1280,7 @@ direct references to sections like <a href="../manual/doc.md.html#Readme_files">
 references, it is not an error if the reference cannot be found.</p>
 
 <p>The <em>sections</em> of a document (the second-level headings) are also references. This
-particular section you are reading can be refered to as <code>@{doc.md.Readme_files}</code> - the
+particular section you are reading can be referred to as <code>@{doc.md.Readme_files}</code> - the
 rule is that any non-alphabetic character is replaced by an underscore.</p>
 
 <p>Any indented blocks are assumed to be Lua, unless their first line is <code>@plain</code>. New
@@ -1295,7 +1299,7 @@ particular param tag. A shorthand has been introduced for this common case, whic
 <p>This is useful for larger projects where you want to provide the argument and return value
 types for your API, in a structured way that can be easily extracted later.</p>
 
-<p>These types can be combined, so that "?string|number" means "ether a string or a number";
+<p>These types can be combined, so that "?string|number" means "either a string or a number";
 "?string" is short for "?|nil|string". However, for this last case you should usually use the
 <code>opt</code> modifier discussed below.</p>
 
@@ -1303,7 +1307,7 @@ types for your API, in a structured way that can be easily extracted later.</p>
 
 
 <pre>
-tparam_alias(<span class="string">'string'</span>,<span class="string">'string'</span>)
+<span class="function-name">tparam_alias</span>(<span class="string">'string'</span>,<span class="string">'string'</span>)
 </pre>
 
 <p>That is, <strong>@string</strong> will now have the same meaning as "@tparam string"; this also applies
@@ -1341,7 +1345,7 @@ defined as a tag plus a set of modifiers.  So <code>tparam</code> is defined as:
 
 
 <pre>
-alias(<span class="string">'tparam'</span>,{<span class="string">'param'</span>,modifiers={<span class="global">type</span>=<span class="string">"$1"</span>}})
+<span class="function-name">alias</span>(<span class="string">'tparam'</span>,{<span class="string">'param'</span>,modifiers={<span class="global">type</span>=<span class="string">"$1"</span>}})
 </pre>
 
 <p>As an extension, you're allowed to use <strong>@param</strong> tags in table definitions. This makes it
@@ -1358,7 +1362,7 @@ possible to use type aliases like <strong>@string</strong> to describe fields, s
 </span><span class="comment">-- @param[opt] two
 </span><span class="comment">-- @param three
 </span><span class="comment">-- @param[opt] four
-</span><span class="keyword">function</span> fun (one,two,three,four)
+</span><span class="keyword">function</span> <span class="function-name">fun</span> (one,two,three,four)
 <span class="keyword">end</span>
 <span class="comment">----&gt; displayed as: fun (one [, two], three [, four])</span>
 </pre>
@@ -1372,7 +1376,7 @@ possible to use type aliases like <strong>@string</strong> to describe fields, s
 </span><span class="comment">-- @param[opt] two
 </span><span class="comment">-- @param[optchain] three
 </span><span class="comment">-- @param[optchain] four
-</span><span class="keyword">function</span> fun (one,two,three,four)
+</span><span class="keyword">function</span> <span class="function-name">fun</span> (one,two,three,four)
 <span class="keyword">end</span>
 <span class="comment">----&gt; displayed as: fun (one [, two [, three [, four]]])</span>
 </pre>
@@ -1392,15 +1396,15 @@ as 'opt','optchain'.... .   If you want to be explicit, then do <code>convert_op
 </span><span class="comment">-- you may document an indefinite number of extra arguments!
 </span><span class="comment">-- @string name person's name
 </span><span class="comment">-- @int age
-</span><span class="comment">-- @string[opt='gregorian'] calender optional calendar
+</span><span class="comment">-- @string[opt='gregorian'] calendar optional calendar
 </span><span class="comment">-- @int[opt=0] offset optional offset
 </span><span class="comment">-- @treturn string
-</span><span class="keyword">function</span> one (name,age,...)
+</span><span class="keyword">function</span> <span class="function-name">one</span> (name,age,...)
 <span class="keyword">end</span>
-<span class="comment">----&gt; displayed as: one (name, age [, calender='gregorian' [, offset=0]])</span>
+<span class="comment">----&gt; displayed as: one (name, age [, calendar='gregorian' [, offset=0]])</span>
 </pre>
 
-<p>(See <a href="../examples/four.lua.html#">four.lua</a>, rendered <a href="http://stevedonovan.github.io/ldoc/examples/four">here</a>)</p>
+<p>(See <a href="../examples/four.lua.html#">four.lua</a>)</p>
 
 <p>An experimental feature in 1.4 allows different 'return groups' to be defined. There may be
 multiple <strong>@return</strong> tags, and the meaning of this is well-defined, since Lua functions may
@@ -1420,11 +1424,10 @@ as a group:</p>
 </span><span class="comment">-- @return[1] result
 </span><span class="comment">-- @return[2] nil
 </span><span class="comment">-- @return[2] error message
-</span><span class="keyword">function</span> mul1() ... <span class="keyword">end</span>
+</span><span class="keyword">function</span> <span class="function-name">mul1</span>() ... <span class="keyword">end</span>
 </pre>
 
-<p>This is the first function in <a href="../examples/multiple.lua.html#">multiple.lua</a>, and the <a href="http://stevedonovan.github.io/ldoc/examples/multiple">output</a>
-shows how return groups are presented, with an <strong>Or</strong> between the groups.</p>
+<p>This is the first function in <a href="../examples/multiple.lua.html#">multiple.lua</a>, and the output shows how return groups are presented, with an <strong>Or</strong> between the groups.</p>
 
 <p>This is rather clumsy, and so there is a shortcut, the <strong>@error</strong> tag which achieves the same result,
 with helpful type information.</p>
@@ -1458,6 +1461,8 @@ templates or for extraction by your own tools.</p>
     configuration file.</li>
     <li><code>merge</code> allow documentation from different files to be merged into modules without
     explicit <strong>@submodule</strong> tag</li>
+    <li><code>icon</code> an image that will be displayed under the project name on all pages</li>
+    <li><code>multimodule</code> allow using @module, @script, @file, etc. multiple times in a file</li>
 </ul>
 
 <p><em>These only appear in the configuration file:</em></p>
@@ -1502,7 +1507,7 @@ templates or for extraction by your own tools.</p>
   <span class="keyword">if</span> item.<span class="global">type</span> == <span class="string">'function'</span> <span class="keyword">and</span> item.tags.callback <span class="keyword">then</span>
     <span class="keyword">return</span> item.name .. <span class="string">' [callback]'</span>
   <span class="keyword">end</span>
-  <span class="keyword">return</span> default_handler(item)
+  <span class="keyword">return</span> <span class="function-name">default_handler</span>(item)
 <span class="keyword">end</span>
 </pre>
 
@@ -1548,7 +1553,7 @@ function/table doc comments, or on their own anywhere in the code.</p>
 </span>...
 <span class="comment">--- first function.
 </span><span class="comment">-- @todo check if this works!
-</span><span class="keyword">function</span> annot1.first ()
+</span><span class="keyword">function</span> annot1.<span class="function-name">first</span> ()
     <span class="keyword">if</span> boo <span class="keyword">then</span>
 
     <span class="keyword">end</span>
@@ -1572,7 +1577,6 @@ d:\dev\lua\ldoc\tests\annot1.lua:19: first-fixme1: fixme what about else?
 <p>LDoc, like LuaDoc, generates output HTML using a template, in this case <code>ldoc/html/ldoc_ltp.lua</code>. This
 is expanded by the powerful but simple preprocessor devised originally by <a href="http://lua-users.org/wiki/SlightlyLessSimpleLuaPreprocessor">Rici
 Lake</a> which is now part of
-Lake](http://lua-users.org/wiki/SlightlyLessSimpleLuaPreprocessor) which is now part of
 Penlight. There are two rules - any line starting with '#' is Lua code, which can also be
 embedded with '$(...)'.</p>
 
@@ -1580,7 +1584,7 @@ embedded with '$(...)'.</p>
 <pre>
 &lt;h2&gt;Contents&lt;/h2&gt;
 &lt;ul&gt;
-# <span class="keyword">for</span> kind,items <span class="keyword">in</span> <span class="global">module</span>.kinds() <span class="keyword">do</span>
+# <span class="keyword">for</span> kind,items <span class="keyword">in</span> <span class="global">module</span>.<span class="function-name">kinds</span>() <span class="keyword">do</span>
 &lt;li&gt;&lt;a href=<span class="string">"#$(no_spaces(kind))"</span>&gt;$(kind)&lt;/a&gt;&lt;/li&gt;
 # <span class="keyword">end</span>
 &lt;/ul&gt;
@@ -1622,7 +1626,7 @@ and presentation makes this kind of new application possible with LDoc.</p>
 
 <p>From 1.4, LDoc has some limited support for generating Markdown output, although only
 for single files currently. Use <code>--ext md</code> for this.  'ldoc/html/ldoc<em>md</em>ltp.lua' defines
-the template for Markdown, but this can be overriden with <code>template</code> as above. It's another
+the template for Markdown, but this can be overridden with <code>template</code> as above. It's another
 example of minimal structure, and provides a better place to learn about these templates than the
 rather elaborate default HTML template.</p>
 
@@ -1699,8 +1703,8 @@ to their tags.</p>
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.5</a></i>
-<i style="float:right;">Last updated 2021-08-03 01:51:02 </i>
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2023-05-02 04:38:04 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
